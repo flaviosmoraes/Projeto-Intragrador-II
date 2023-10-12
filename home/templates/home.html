@@ -1,11 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt-Br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="Compost Collector v2" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Compost Collector Home</h1>
-</body>
-</html>
+{% extends 'base.html' %} 
+
+{% block title %}Início{% endblock %} 
+
+{% block css%}
+    <link rel="stylesheet" type = "text/css" href="/static/home/css/home.css" media="screen" />
+{% endblock %}
+
+{% block content %}
+    <div class="texto">
+        <h1 id="titulo">Projeto Integrador 2 - Compost Collector v2</h1>
+        <br>
+        <img src="/static/base/img/logo.png">
+        <br>
+        <div class="subtitulo"><h2 id="organe-se">Organe-se</h2></div>
+        <p><em>A Organe-se é um projeto de compostagem urbana em São José dos Campos -SP</em></p>
+        <p>Nós ressignificamos o resíduo orgânico oferecendo os serviços de coleta, transporte e compostagem.</p>
+        <p>Além do serviço de coleta em casa, que é feita por enquanto em alguns bairros, temos também a opção de Pontos de Coleta com locais de entrega nas zonas central, oeste e norte de São José dos Campos.</p>
+        <p>Os clientes que fazem parte deste projeto recebem todo mês recompensas, como adubo, biofertilizante e/ou mudas, além de um relatório do seu impacto positivo ao meio ambiente.</p>
+        <br>
+        <div class="subtitulo"><h2 id="sobre-o-projeto">Sobre o projeto</h2></div>
+        <p>Este projeto visa otimizar o gerenciamento dos pontos de coletas do projeto, onde através de uma aplicação web (<em>Dashboard</em>) é possível acompanhar a quantidade de resíduos em cada ponto e contabilizar por pessoa o número exato de resíduos recolhidos ao final de um ciclo.</p>
+        <p>O usuário final da aplicação é uma pessoa que trabalha diretamente para a ong, onde ela será a responsável pelo gerenciamento dos pontos de coleta. A princípio, a aplicação não estará disponível para os clientes.</p>
+        <p>Na aplicação, é possível realizar as operações de <em>CRUD (Create, Read, Update, Delete)</em> com os resíduos publicados pelos clientes, ou seja, é possível criar, editar, listar e deletar as entidades no banco de dados. Para este projeto, foi considerado como entidade no banco de dados os <em>resíduos</em> e <em>pontos de coleta</em>.</p>
+    </div>
+{% endblock %}

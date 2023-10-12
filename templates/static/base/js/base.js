@@ -11,8 +11,10 @@ menuItem.forEach((item)=>
     item.addEventListener('click', selectLink)
 )
 
-var btnExp = document.querySelector('#btn-exp')
+var btnExp = document.querySelector('.btn-expand')
 var sideMenu = document.querySelector('.menu-lateral')
+var content = document.querySelector('.content')
 btnExp.addEventListener('click', function(){
     sideMenu.classList.toggle('esconder')
+    content.classList.toggle('expandido')
 })
