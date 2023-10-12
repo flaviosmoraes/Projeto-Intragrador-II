@@ -42,12 +42,21 @@ header{
     font-size: 30px;
     cursor: pointer;
 }
+
 nav.menu-lateral{
     width: 230px;
     height: 100%;
     background-color: #222d32;
     padding: 0px 0px 20px 3px;
     position: fixed;
+    transition: 0.25s;
+    overflow: hidden;
+}
+
+nav.menu-lateral.esconder{
+    width: 0px;
+    overflow: hidden;
+    transition: 0.25s;
 }
 
 ul{
@@ -67,6 +76,11 @@ ul li.item-menu:hover{
     background: #1e282c;
     box-shadow: -3px 0px 0px white;
     transition: .2s;
+}
+
+ul li.ativo{
+    background: #1e282c;
+    box-shadow: -3px 0px 0px white;
 }
 
 ul li.item-menu a .txt-link{

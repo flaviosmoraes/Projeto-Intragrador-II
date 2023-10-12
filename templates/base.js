@@ -7,3 +7,12 @@ function selectLink(){
     this.classList.add('ativo')
 }
 
+menuItem.forEach((item)=>
+    item.addEventListener('click', selectLink)
+)
+
+var btnExp = document.querySelector('#btn-exp')
+var sideMenu = document.querySelector('.menu-lateral')
+btnExp.addEventListener('click', function(){
+    sideMenu.classList.toggle('esconder')
+})
