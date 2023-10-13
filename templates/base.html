@@ -22,20 +22,20 @@
     <div class="body">
     <aside class="menu-lateral">
         <ul>
-            <li class="item-menu ativo">
-                <a href="#">
+            <li class="item-menu {% block ativo1 %}{% endblock %}">
+                <a href="/">
                     <span class="icon"><i class="bi bi-house-fill"></i></span>
                     <span class="txt-link">Início</span>
                 </a>
             </li>
-            <li class="item-menu">
-                <a href="#">
+            <li class="item-menu {% block ativo2 %}{% endblock %}">
+                <a href="mapa">
                     <span class="icon"><i class="bi bi-map-fill"></i></span>
                     <span class="txt-link">Mapa</span>
                 </a>
             </li>
-            <li class="item-menu">
-                <a href="#">
+            <li class="item-menu {% block ativo3 %}{% endblock %}">
+                <a href="gerenciamento">
                     <span class="icon"><i class="bi bi-gear-fill"></i></span>
                     <span class="txt-link">Gerenciamento</span>
                 </a>
