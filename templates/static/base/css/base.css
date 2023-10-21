@@ -63,6 +63,7 @@ aside.menu-lateral{
 
 aside.menu-lateral.esconder{
     width: 0px;
+    padding-left: 0px;
     overflow: hidden;
     transition: 0.25s;
 }
@@ -78,6 +79,7 @@ ul li.item-menu a{
     font-size: 20px;
     padding: 10px 4%;
     display: flex;
+    align-items: center;
 }
 
 ul li.item-menu:hover{

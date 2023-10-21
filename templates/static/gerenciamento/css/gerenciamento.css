@@ -1,0 +1,130 @@
+.accordion {
+    width: 100%;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #4a8cb9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a8cb9;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.accordion-icon {
+    color: white;
+    background-color: #4a8cb9;
+    font-size: 24px;
+    border: 0px;
+    width: 25px;
+}
+
+.accordion-icon:hover{
+    background-color: #427ea6;
+}
+
+.accordion-content {
+    background-color: white;
+    height: 0px;
+    transition: 0.2s;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.accordion-item.active .accordion-content {
+    transition: max-height;
+    height: fit-content;
+    transition: 0.2s;
+    padding: 20px;
+}
+
+.botoes{
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+.botoes-item{
+    padding-left: 10px;
+}
+
+.botoes-item > button{
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+}
+
+.botoes-item > button > i{
+    font-size: 16px;
+    padding-right: 3px;
+}
+
+h4{
+    text-decoration: none;
+}
+
+.sub-accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #4a8cb9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.sub-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4a8cb9;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+.sub-accordion-icon {
+    color: white;
+    background-color: #4a8cb9;
+    font-size: 24px;
+    border: 0px;
+    width: 25px;
+}
+
+.sub-accordion-icon:hover{
+    background-color: #427ea6;
+}
+
+.sub-accordion-content {
+    background-color: white;
+    height: 0px;
+    transition: 0.2s;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.sub-accordion-item.active .sub-accordion-content {
+    transition: max-height;
+    height: fit-content;
+    transition: 0.2s;
+    padding: 20px;
+}
+
+#cadastrar > header{
+    background-color: #40a261;
+}
+
+#editar > header{
+    background-color: #eb9f2e;
+}
+
+#excluir > header{
+    background-color: #d2553b;
+}
