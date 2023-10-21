@@ -38,6 +38,7 @@ header{
     padding-top: 10px;
     padding-left: 10px;
     box-shadow: 1px 0px 0px lightgray;
+    caret-color: transparent;
 }
 
 .btn-expand:hover{
@@ -49,6 +50,7 @@ header{
     color: black;
     font-size: 30px;
     cursor: pointer;
+    caret-color: transparent;
 }
 
 aside.menu-lateral{
