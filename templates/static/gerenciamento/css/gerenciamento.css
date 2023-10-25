@@ -109,15 +109,14 @@ h4{
     background-color: white;
     height: 0px;
     transition: 0.2s;
-    padding-right: 20px;
-    padding-left: 20px;
 }
 
 .sub-accordion-item.active .sub-accordion-content {
     transition: max-height;
     height: fit-content;
     transition: 0.2s;
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #cadastrar{
@@ -171,7 +170,7 @@ h4{
 .btn-crud{
     display: flex;
     justify-content: center;
-    box-shadow: 1px 1px 1px 1px solid gray;
+    padding-top: 20px;
 }
 
 .btn-crud > button{
@@ -179,8 +178,40 @@ h4{
     font-size: 16px;
 }
 
-.forms-block{
+.form-container {
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    box-shadow: 0px 1px lightgray;
+    padding-bottom: 20px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+  }
+
+.input_nome{
+    display: block;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+table{
+    width: 100%;
+}
+
+thead{
+    box-shadow: 0px 1px gray;
+}
+
+tr{
+    padding-bottom: 5px;
+}
+
+td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -16,6 +16,6 @@ class residuos(models.Model):
     quantidade_kg = models.FloatField()
     publicado_em = models.DateTimeField(auto_now_add=True, null=True)
     publicado_por = models.CharField(max_length=255)
-    recolhido_em = models.DateTimeField()
+    recolhido_em = models.DateTimeField(null=True)
     foi_recolhido = models.BooleanField(default=False)
     posto_fk = models.ForeignKey(postos_coleta, on_delete=models.CASCADE)
