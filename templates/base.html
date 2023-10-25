@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-Br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,9 @@
     {% block css %}
     {% endblock %}
 </head>
+
 <body>
+
     <header>
         <div class="btn-expand">
             <i class="bi bi-list" id="btn-exp"></i>
@@ -19,7 +22,9 @@
             <a href="/" class = "logo"><img src="/static/base/img/logo.png" alt="logo"></a>
         </div>
     </header>
+
     <div class="body">
+    
     <aside class="menu-lateral">
         <ul>
             <li class="item-menu {% block ativo1 %}{% endblock %}">
@@ -29,26 +34,27 @@
                 </a>
             </li>
             <li class="item-menu {% block ativo2 %}{% endblock %}">
-                <a href="mapa">
+                <a href="/mapa">
                     <span class="icon"><i class="bi bi-map-fill"></i></span>
                     <span class="txt-link">Mapa</span>
                 </a>
             </li>
             <li class="item-menu {% block ativo3 %}{% endblock %}">
-                <a href="gerenciamento">
+                <a href="/gerenciamento">
                     <span class="icon"><i class="bi bi-gear-fill"></i></span>
                     <span class="txt-link">Gerenciamento</span>
                 </a>
             </li>
         </ul>
     </aside>
+
     <section class="content">
         {% block content %}
         {% endblock %}
     </section>
     </div>
-    <script src="/static/base/js/base.js"></script>
-    {% block js %}
-    {% endblock %}
 </body>
+
+<script src="/static/base/js/base.js"></script>{% block js %}{% endblock %}
+
 </html>
