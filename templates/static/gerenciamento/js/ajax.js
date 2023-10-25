@@ -28,4 +28,3 @@ const dialogBtn = document.getElementById('dialog-btn');
 dialogBtn.addEventListener('click', function () {
     dialog.close();
 });
-
