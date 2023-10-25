@@ -38,6 +38,7 @@ header{
     padding-top: 10px;
     padding-left: 10px;
     box-shadow: 1px 0px 0px lightgray;
+    caret-color: transparent;
 }
 
 .btn-expand:hover{
@@ -49,6 +50,7 @@ header{
     color: black;
     font-size: 30px;
     cursor: pointer;
+    caret-color: transparent;
 }
 
 aside.menu-lateral{
@@ -63,6 +65,7 @@ aside.menu-lateral{
 
 aside.menu-lateral.esconder{
     width: 0px;
+    padding-left: 0px;
     overflow: hidden;
     transition: 0.25s;
 }
@@ -78,6 +81,7 @@ ul li.item-menu a{
     font-size: 20px;
     padding: 10px 4%;
     display: flex;
+    align-items: center;
 }
 
 ul li.item-menu:hover{
