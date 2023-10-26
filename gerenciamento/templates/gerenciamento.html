@@ -36,6 +36,26 @@
             <div class="accordion-content">
                 <h4>Pontos de coletas já cadastrados</h4>
                 <br>
+                <div id="postos-tabela">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th id="t-id">Indentificador</td>
+                                <th id="t-name">Nome</td>
+                                <th id="t-address">Endereço</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for posto in postos %}
+                            <tr class="t-row">
+                                <td id="t-id">{{posto.id_posto}}</td>
+                                <td id="t-name">{{posto.nome_posto}}</td>
+                                <td id="t-address">{{posto.endereco_completo}}</td>
+                            </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </div>
                 <br>
                 <div class="sub-accordion-item" id="cadastrar">
                     <div class="sub-accordion-header">Cadastrar novo Ponto de Coleta<button class="sub-accordion-icon">+</button></div>

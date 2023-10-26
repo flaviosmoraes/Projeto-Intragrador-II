@@ -4,10 +4,15 @@ from geopy.geocoders import GoogleV3
 from geopy.geocoders import Nominatim
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
+from django.template.response import TemplateResponse
+from time import sleep
 
 
 def gerenciamento(request):
-    return render(request, 'gerenciamento.html')
+    postos = {
+        'postos': postos_coleta.objects.all()
+    }
+    return render(request, 'gerenciamento.html', postos)
 
 
 def adicionar(request):
@@ -86,5 +91,16 @@ def excluir(request):
             return HttpResponse('<p>Sucesso ao excluir o posto ' + nome_posto + ' !</p>')
         except postos_coleta.DoesNotExist:
             return HttpResponse('<p><em>ERRO:</em> Não exite um posoto com o id: ' + id_posto_excluir + '</p>')
+    else:
+        return HttpResponseRedirect('/gerenciamento/')
+
+
+def atualizar(request):
+    if request.method == 'POST':
+        sleep(1)
+        postos = {
+            'postos': postos_coleta.objects.all()
+        }
+        return TemplateResponse(request, 'tabela_posto.html', postos)
     else:
         return HttpResponseRedirect('/gerenciamento/')
