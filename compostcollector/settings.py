@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'compostcollector.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'organe',
+        'USER': 'root',
+        'PASSWORD': 'mpxg/GzC$xyF{o+y',
+        'HOST': '34.151.198.122',
+        'PORT': '3306',
     }
 }
 
