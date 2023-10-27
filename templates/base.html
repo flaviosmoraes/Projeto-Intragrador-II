@@ -13,13 +13,18 @@
 </head>
 
 <body>
-
     <header>
-        <div class="btn-expand">
-            <i class="bi bi-list" id="btn-exp"></i>
+        <div style="display: flex;">
+            <div class="btn-expand">
+                <i class="bi bi-list" id="btn-exp"></i>
+            </div>
+            <div class=logo>
+                <a href="/" class = "logo"><img src="/static/base/img/logo.png" alt="logo"></a>
+            </div>
         </div>
-        <div class=logo>
-            <a href="/" class = "logo"><img src="/static/base/img/logo.png" alt="logo"></a>
+        <div>
+            <button id="btn-increase-font">A+</button>
+            <button id="btn-decrease-font">A-</button>
         </div>
     </header>
 
@@ -55,14 +60,11 @@
     </div>
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-          <div class="vw-plugin-top-wrapper"></div>
-        </div>
+        <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
     </div>
-    <script src="/static/base/js/base.js"></script>{% block js %}{% endblock %}
+    <script src="/static/base/js/base.js"></script>
+    <script src="/static/base/js/aumentarfonte.js"></script>
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>
-      new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
+    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>{% block js %}{% endblock %}
 </body>
 </html>
