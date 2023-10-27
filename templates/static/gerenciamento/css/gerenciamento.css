@@ -77,10 +77,14 @@ h4{
 }
 
 .sub-accordion-item {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     border: 1px solid #4a8cb9;
     border-radius: 5px;
     overflow: hidden;
+}
+
+.accordion-no-margin{
+    margin-bottom: 0px;
 }
 
 .sub-accordion-header {
@@ -303,8 +307,4 @@ th{
     100% {
       transform: rotate(360deg);
     }
-  } 
-
-teste{
-    font-weight: bold;
-}
+  }

@@ -24,6 +24,19 @@
             <div class="accordion-content">
                 <h4>Quantidade de resíduos já coletados</h4>
                 <br>
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</td>
+                                <th>Quantidade coletada (Kg)</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <br>
                 <ul class="botoes">
                     <li class="botoes-item" id="Download"><button><i class="bi bi-file-earmark-arrow-down-fill"></i> Download</button></li>
                     <li class="botoes-item"><button><i class="bi bi-arrow-repeat"></i> Atualizar</button></li>
@@ -31,7 +44,7 @@
                 </ul>
             </div>
         </div>
-        <div class="accordion-item">
+        <div class="accordion-item accordion-no-margin" id="accordion-no-margin">
             <div class="accordion-header">Pontos de Coleta<button class="accordion-icon">+</button></div>
             <div class="accordion-content">
                 <h4>Pontos de coletas já cadastrados</h4>
@@ -101,7 +114,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="sub-accordion-item" id="excluir">
+                <div class="sub-accordion-item accordion-no-margin" id="excluir">
                     <div class="sub-accordion-header">Excluir um ponto de coleta<button class="sub-accordion-icon">+</button></div>
                     <div class="sub-accordion-content">
                         <form class="ajax-form" id="Excluir" action="{% url 'excluir' %}" method="POST" label="Excluir">{% csrf_token %}
