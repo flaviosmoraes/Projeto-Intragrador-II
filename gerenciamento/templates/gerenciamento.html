@@ -24,23 +24,35 @@
             <div class="accordion-content">
                 <h4>Quantidade de resíduos já coletados</h4>
                 <br>
-                <div>
+                <div id="residuos-tabela">
                     <table>
                         <thead>
                             <tr>
-                                <th>Nome</td>
-                                <th>Quantidade coletada (Kg)</td>
+                                <th class="txt-aling-center">Nome</td>
+                                <th class="txt-aling-center">Quantidade coletada (Kg)</td>
                             </tr>
                         </thead>
                         <tbody>
+                            {% if residuos %}
+                                {% for residuo in residuos %}
+                                <tr class="t-row">
+                                    <td class="txt-aling-center">{{residuo.publicado_por}}</td>
+                                    <td class="txt-aling-center">{{residuo.total_quantidade_kg}} Kg</td>
+                                </tr>
+                                {% endfor%}
+                            {% else %}
+                                <tr>
+                                    <td colspan="2" class="txt-aling-center">Não há dados sobre resíduos coletados.</td>
+                                </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>
                 <br>
                 <ul class="botoes">
-                    <li class="botoes-item" id="Download"><button><i class="bi bi-file-earmark-arrow-down-fill"></i> Download</button></li>
-                    <li class="botoes-item"><button><i class="bi bi-arrow-repeat"></i> Atualizar</button></li>
-                    <li class="botoes-item"><button><i class="bi bi-trash3-fill"></i> Limpar Dados</button></li>
+                    <li class="botoes-item"><button id="download-btn" type="button"><i class="bi bi-file-earmark-arrow-down-fill"></i> Download</button></li>
+                    <li class="botoes-item"><button id="atualizar-btn" type="button"><i class="bi bi-arrow-repeat" ></i> Atualizar</button></li>
+                    <li class="botoes-item"><button id="limpar-btn" type="button"><i class="bi bi-trash3-fill"></i> Limpar Dados</button></li>
                 </ul>
             </div>
         </div>
@@ -59,13 +71,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for posto in postos %}
-                            <tr class="t-row">
-                                <td id="t-id">{{posto.id_posto}}</td>
-                                <td id="t-name">{{posto.nome_posto}}</td>
-                                <td id="t-address">{{posto.endereco_completo}}</td>
-                            </tr>
-                            {% endfor%}
+                            {% if postos %}
+                                {% for posto in postos %}
+                                <tr class="t-row">
+                                    <td id="t-id">{{posto.id_posto}}</td>
+                                    <td id="t-name">{{posto.nome_posto}}</td>
+                                    <td id="t-address">{{posto.endereco_completo}}</td>
+                                </tr>
+                                {% endfor%}
+                            {% else %}
+                                <tr>
+                                    <td colspan="3" style="text-align: center;">Não há postos cadastrados.</td>
+                                </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>
@@ -117,7 +135,7 @@
                 <div class="sub-accordion-item accordion-no-margin" id="excluir">
                     <div class="sub-accordion-header">Excluir um ponto de coleta<button class="sub-accordion-icon">+</button></div>
                     <div class="sub-accordion-content">
-                        <form class="ajax-form" id="Excluir" action="{% url 'excluir' %}" method="POST" label="Excluir">{% csrf_token %}
+                        <form class="ajax-form" id="Excluir" action="{% url 'excluir' id=1 %}" method="POST" label="Excluir">{% csrf_token %}
                             <div class="form-container">
                                 <div class="input_box" style="width: 20%;">
                                     <label class="input_nome">ID</label>

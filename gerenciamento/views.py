@@ -5,14 +5,19 @@ from geopy.geocoders import Nominatim
 from django.utils import timezone
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template.response import TemplateResponse
+from django.db.models import Sum, F
 from time import sleep
+import openpyxl
+from openpyxl.utils.dataframe import dataframe_to_rows
+import pandas as pd
 
 
 def gerenciamento(request):
-    postos = {
-        'postos': postos_coleta.objects.all()
+    context = {
+        'postos': postos_coleta.objects.all(),
+        'residuos': residuos.objects.filter(foi_recolhido=True).values('publicado_por').annotate(total_quantidade_kg=Sum('quantidade_kg'))
     }
-    return render(request, 'gerenciamento.html', postos)
+    return render(request, 'gerenciamento.html', context)
 
 
 def adicionar(request):
@@ -78,29 +83,71 @@ def editar(request):
         return HttpResponseRedirect('/gerenciamento/')
 
 
-def excluir(request):
+def excluir(request, id):
     if request.method == 'POST':
-        id_posto_excluir = request.POST.get('id_posto')
-        if not id_posto_excluir:
-            return HttpResponse('<p><em>ERRO:</em> Digite o numero de um posto.</p>')
-        try:
-            posto_a_excluir = postos_coleta.objects.get(
-                id_posto=id_posto_excluir)
-            nome_posto = posto_a_excluir.nome_posto
-            posto_a_excluir.delete()
-            return HttpResponse('<p>Sucesso ao excluir o posto ' + nome_posto + ' !</p>')
-        except postos_coleta.DoesNotExist:
-            return HttpResponse('<p><em>ERRO:</em> Não exite um posoto com o id: ' + id_posto_excluir + '</p>')
+        if id == 1:
+            id_posto_excluir = request.POST.get('id_posto')
+            if not id_posto_excluir:
+                return HttpResponse('<p><em>ERRO:</em> Digite o numero de um posto.</p>')
+            try:
+                posto_a_excluir = postos_coleta.objects.get(
+                    id_posto=id_posto_excluir)
+                nome_posto = posto_a_excluir.nome_posto
+                posto_a_excluir.delete()
+                return HttpResponse('<p>Sucesso ao excluir o posto ' + nome_posto + ' !</p>')
+            except postos_coleta.DoesNotExist:
+                return HttpResponse('<p><em>ERRO:</em> Não exite um posoto com o id: ' + id_posto_excluir + '</p>')
+        if id == 2:
+            residuos_recolhidos = residuos.objects.filter(foi_recolhido=True)
+            if residuos_recolhidos:
+                residuos_recolhidos.delete()
+                return HttpResponse('<p>Os resíduos coletados foram limpos do banco de dados.</p>')
+            else:
+                return HttpResponse('<p><em>ERRO:</em> Não há resíduos marcados como recolhidos para serem limpos.</p>')
     else:
         return HttpResponseRedirect('/gerenciamento/')
 
 
-def atualizar(request):
+def atualizar(request, id):
     if request.method == 'POST':
-        sleep(1)
-        postos = {
-            'postos': postos_coleta.objects.all()
-        }
-        return TemplateResponse(request, 'tabela_posto.html', postos)
+        if id == 1:
+            context = {
+                'residuos': residuos.objects.filter(foi_recolhido=True).values('publicado_por').annotate(total_quantidade_kg=Sum('quantidade_kg'))
+            }
+            return TemplateResponse(request, 'tabela_residuos.html', context)
+        if id == 2:
+            postos = {
+                'postos': postos_coleta.objects.all()
+            }
+            return TemplateResponse(request, 'tabela_postos.html', postos)
+    else:
+        return HttpResponseRedirect('/gerenciamento/')
+
+
+def download(request):
+    if request.method == 'POST':
+        # Obtenha os dados que você deseja exportar para o Excel
+        residuos_data = residuos.objects.filter(foi_recolhido=True).values(
+            'publicado_por').annotate(total_quantidade_kg=Sum('quantidade_kg'))
+
+        # Crie um DataFrame pandas com os dados
+        df = pd.DataFrame(residuos_data)
+
+        # Crie um novo Workbook Excel usando openpyxl
+        wb = openpyxl.Workbook()
+        ws = wb.active
+
+        # Use dataframe_to_rows para carregar os dados do DataFrame para a planilha Excel
+        for row in dataframe_to_rows(df, index=False, header=True):
+            ws.append(row)
+
+        # Crie uma resposta HTTP com o conteúdo Excel
+        response = HttpResponse(content_type='application/ms-excel')
+        response['Content-Disposition'] = 'attachment; filename=residuos.xlsx'
+
+        # Salve o Workbook Excel na resposta
+        wb.save(response)
+
+        return response
     else:
         return HttpResponseRedirect('/gerenciamento/')

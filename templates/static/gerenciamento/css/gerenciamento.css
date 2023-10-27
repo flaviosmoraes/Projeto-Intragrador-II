@@ -308,3 +308,7 @@ th{
       transform: rotate(360deg);
     }
   }
+  
+  .txt-aling-center{
+    text-align: center;
+  }
