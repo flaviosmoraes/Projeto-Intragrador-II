@@ -1,0 +1,66 @@
+#map{
+    height: 100%;
+    width: 100%;
+}
+
+dialog{
+    margin: auto;
+    width: 50%;
+    height: fit-content;
+    border-radius: .5rem;
+    border-color: lightgray;
+    border-width: 1px;
+    box-shadow: 0px 0px 20px gray;
+}
+
+#dialog-head{
+    padding: 10px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    box-shadow: 0px 1px lightgray;
+}
+
+#dialog-body{
+    min-height: 15vh;
+    max-height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+}
+
+#dialog-bottom{
+    padding: 10px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    box-shadow: 0px -1px lightgray;
+}
+
+#dialog-btn{
+    padding: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#dialog-btn > i{
+    padding-right: 5px;
+}
+
+#icone-reciclagem{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#icone-reciclagem > img{
+    height: 70px;
+    width: 70px;
+}
