@@ -194,7 +194,7 @@ input {
     width: 100%;
     height: 30px;
     padding: 5px;
-  }
+}
 
 .input_nome{
     display: block;
@@ -312,3 +312,18 @@ th{
   .txt-aling-center{
     text-align: center;
   }
+
+dialog[open] {
+    animation: show-dialog 0.5s ease normal;
+}
+
+@keyframes show-dialog {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}

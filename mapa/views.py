@@ -1,8 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
+from django.template.response import TemplateResponse
 from django.db.models import Sum, F, FloatField
 from gerenciamento.models import postos_coleta, residuos
+import json
 
 
 def mapa(request):
@@ -19,8 +21,8 @@ def getgeojson(request):
         }
 
         for posto in postos:
-            total_residuos_a_recolher = residuos.objects.filter(posto_fk=posto, foi_recolhido=False).aggregate(
-                total=Sum(F('quantidade_kg'), output_field=FloatField()))['total'] or 0.0
+            total_residuos_a_recolher = residuos.objects.filter(posto_fk=posto, foi_recolhido=False).aggregate(total=Sum(F('quantidade_kg'), output_field=FloatField()))['total'] or 0.0  # noqa
+            total_residuos_a_recolher = round(total_residuos_a_recolher, 3)
             feature = {
                 "type": "Feature",
                 "geometry": {
@@ -37,5 +39,64 @@ def getgeojson(request):
             geojson_data["features"].append(feature)
 
         return JsonResponse(geojson_data)
+    else:
+        return HttpResponseRedirect('/mapa/')
+
+
+def posto(request, id):
+    if request.method == 'POST':
+        idPosto = id
+        posto = postos_coleta.objects.filter(id_posto=idPosto)
+        residuosNoPosto = residuos.objects.filter(posto_fk=idPosto, foi_recolhido=False)  # noqa
+        context = {
+            'posto': posto,
+            'residuos': residuosNoPosto
+        }
+        return TemplateResponse(request, 'dialog_body.html', context)
+    else:
+        return HttpResponseRedirect('/mapa/')
+
+
+def publicar(request):
+    if request.method == 'POST':
+        id_posto = request.POST.get('id_posto')
+        publicado_por = request.POST.get('publicado_por')
+        quantidade_kg = request.POST.get('quantidade_kg')
+        if not publicado_por or not quantidade_kg:
+            if not publicado_por and quantidade_kg:
+                return HttpResponse('<br><p><em>ERRO:</em> Escreva o nome de quem está publicando.</p>')
+            elif publicado_por and not quantidade_kg:
+                return HttpResponse('<br><p><em>ERRO:</em> Informe a quantidade do resíduo.</p>')
+            return HttpResponse('<br><p><em>ERRO:</em> Preencha as informações de quem está publicando e a quantidade do resíduo.</p>')
+        novo_residuo = residuos()
+        novo_residuo.quantidade_kg = quantidade_kg
+        novo_residuo.publicado_por = publicado_por
+        novo_residuo.posto_fk_id = id_posto
+        novo_residuo.save()
+        return HttpResponse('<br><p>Resíduo gravado no banco de dados com sucesso.</p>')
+    else:
+        return HttpResponseRedirect('/mapa/')
+
+
+def coletar(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        for value in data:
+            residuoSelecionado = residuos.objects.get(id_residuo=value)
+            residuoSelecionado.foi_recolhido = True
+            residuoSelecionado.save()
+        return JsonResponse({'message': 'Dados processados com sucesso'})
+    else:
+        return HttpResponseRedirect('/mapa/')
+
+
+def gettable(request, id):
+    if request.method == 'POST':
+        idPosto = id
+        residuosNoPosto = residuos.objects.filter(posto_fk=idPosto, foi_recolhido=False)  # noqa
+        context = {
+            'residuos': residuosNoPosto
+        }
+        return TemplateResponse(request, 'tabela_residuos.html', context)
     else:
         return HttpResponseRedirect('/mapa/')

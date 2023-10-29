@@ -114,7 +114,7 @@ def atualizar(request, id):
             context = {
                 'residuos': residuos.objects.filter(foi_recolhido=True).values('publicado_por').annotate(total_quantidade_kg=Sum('quantidade_kg'))
             }
-            return TemplateResponse(request, 'tabela_residuos.html', context)
+            return TemplateResponse(request, 'tabela_residuos_gerenciamento.html', context)
         if id == 2:
             postos = {
                 'postos': postos_coleta.objects.all()
