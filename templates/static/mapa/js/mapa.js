@@ -27,7 +27,7 @@ function atualizarDialog() {
 // Função para atualizar a tabela
 function atualizarTabela(id) {
     const tableContainer = document.getElementById('table-container');
-    tableContainer.innerHTML = '<div style="width: 100%;height: fit-content;display: flex;justify-content: center;align-items: center;padding: 20px;"><span class="loader" style="display: block;"></span><p style="font-weight: bold;padding-left:10px;">Atualizando tabela...</p></div>';
+    tableContainer.innerHTML = '<div style="width: 100%;height: fit-content;display: flex;justify-content: center;align-items: center;padding: 1.25rem;"><span class="loader" style="display: block;"></span><p style="font-weight: bold;padding-left:0.625rem;">Atualizando tabela...</p></div>';
 
     const url = `/mapa/getTable/${id}`;
 
@@ -215,7 +215,6 @@ const csrftoken = getCookie('csrftoken');
 
 // Elementos do diálogo
 const dialog = document.querySelector('dialog');
-const btnExpdn = document.querySelector('.btn-expand');
 const dialogBtn = document.getElementById('dialog-btn');
 const dialogBody = document.getElementById('dialog-body');
 const residuoForm = document.querySelector('.form-residuo');
@@ -241,16 +240,11 @@ const map = L.map('map', {
     ],
 }).setView([-45.89630216400873, -23.19709799312104], 12);
 
-map.panTo(new L.LatLng(-23.19709799312104, -45.89630216400873));
+map.panTo(new L.LatLng(-23.219836188746697, -45.8915696764562));
 
 L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a>'
 }).addTo(map);
-
-// Evento para expandir o mapa
-btnExpdn.addEventListener('click', function () {
-    map.setView(new L.LatLng(-23.19709799312104, -45.89630216400873), 12);
-});
 
 // Evento para fechar o diálogo
 dialogBtn.addEventListener('click', function () {

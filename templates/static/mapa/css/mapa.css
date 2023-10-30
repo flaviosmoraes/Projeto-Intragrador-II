@@ -9,20 +9,20 @@ dialog{
     height: fit-content;
     border-radius: .5rem;
     border-color: lightgray;
-    border-width: 1px;
-    box-shadow: 0px 0px 20px gray;
+    border-width: 0.0625rem;
+    box-shadow: 0px 0px 1.25rem gray;
 }
 
 dialog > br{
-    font-size: 15px;
+    font-size: 1rem;
 }
 
 #dialog-head{
-    padding: 15px;
+    padding: 1rem;
     display: flex;
     justify-content: left;
     align-items: center;
-    box-shadow: 0px 1px lightgray;
+    box-shadow: 0px 0.0625rem lightgray;
 }
 
 #dialog-body{
@@ -33,29 +33,29 @@ dialog > br{
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    padding: 15px;
+    padding: 1rem;
 }
 
 #dialog-bottom{
-    padding: 15px;
+    padding: 1rem;
     display: flex;
     justify-content: right;
     align-items: center;
-    box-shadow: 0px -1px lightgray;
+    box-shadow: 0px -0.0625rem lightgray;
 }
 
 #dialog-btn{
-    padding: 5px;
+    padding: 0.3125rem;
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 14px;
+    font-size: 0.875rem;
     cursor: pointer;
 }
 
 #dialog-btn > i{
-    padding-right: 5px;
+    padding-right: 0.3125rem;
 }
 
 #icone-reciclagem{
@@ -65,8 +65,8 @@ dialog > br{
 }
 
 #icone-reciclagem > img{
-    height: 70px;
-    width: 70px;
+    height: 4.375rem;
+    width: 4.375rem;
 }
 
 button{
@@ -76,7 +76,7 @@ button{
 table{
     width: 90%;
     border-collapse: collapse;
-    border-bottom: 1px solid gray;
+    border-bottom: 0.0625rem solid gray;
 }
 
 tbody {
@@ -92,19 +92,19 @@ thead, tbody tr {
 }
 
 td{
-    padding: 10px;
+    padding: 0.625rem;
 }
 
 tbody > tr{
-    border-bottom: 1px solid lightgray;
+    border-bottom: 0.0625rem solid lightgray;
 }
 
 tbody> tr:hover{
     background-color: lightgray;
 }
 th{
-    padding: 10px;
-    border-bottom: 1px solid gray;
+    padding: 0.625rem;
+    border-bottom: 0.0625rem solid gray;
 }
 
 .t-row.selected{
@@ -133,18 +133,18 @@ label{
 }
 
 #btn-show-form{
-    margin-left: 15px;
+    margin-left: 1rem;
 }
 
 button{
-    padding: 5px;
-    font-size: 16px;
+    padding: 0.312rem;
+    font-size: 1rem;
 }
 
 input {
     width: 100%;
-    height: 30px;
-    padding: 5px;
+    height: 1.875rem;
+    padding: 0.3125rem;
   }
 
 .form-residuo-container{
@@ -183,8 +183,8 @@ dialog[open] {
 }
 
 .loader {
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
     border-radius: 50%;
     display: inline-block;
     border-top: 3px solid gray;

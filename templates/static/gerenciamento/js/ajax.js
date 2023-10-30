@@ -55,7 +55,7 @@ forms.forEach(form => {
             dialogTitle.innerHTML = form.id;
             dialogBody.innerHTML = data;
             dialog.showModal();
-            table.innerHTML = '<div style="width: 100%;height: fit-content;display: flex;justify-content: center;align-items: center;padding: 20px;"><span class="loader" style="display: block;"></span><p style="font-weight: bold;padding-left:10px;">Atualizando tabela...</p></div>'
+            table.innerHTML = '<div style="width: 100%;height: fit-content;display: flex;justify-content: center;align-items: center;padding: 1.25rem;"><span class="loader" style="display: block;"></span><p style="font-weight: bold;padding-left:0.625rem;">Atualizando tabela...</p></div>'
 
             setTimeout(() => {
 
