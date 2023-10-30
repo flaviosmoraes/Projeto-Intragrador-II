@@ -1,17 +1,16 @@
-document.getElementById('btn-increase-font').addEventListener('click', function () {
-    changeFontSize(2);
+const aumentarBotao = document.getElementById('aumentar');
+const diminuirBotao = document.getElementById('diminuir');
+
+aumentarBotao.addEventListener('click', function() {
+    const currentFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    if (currentFontSize < 24) {
+    document.documentElement.style.fontSize = (currentFontSize + 4) + 'px';
+    }
 });
 
-document.getElementById('btn-decrease-font').addEventListener('click', function () {
-    changeFontSize(-2);
+diminuirBotao.addEventListener('click', function() {
+    const currentFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
+    if (currentFontSize > 16) {
+    document.documentElement.style.fontSize = (currentFontSize - 4) + 'px';
+    }
 });
-
-function changeFontSize(change) {
-    const content = document.querySelector('.content')
-    const elements = content.querySelectorAll('*');
-    elements.forEach(function (element) {
-    const currentSize = window.getComputedStyle(element, null).getPropertyValue('font-size');
-    const newSize = (parseFloat(currentSize) + change) + 'px';
-    element.style.fontSize = newSize;
-    });
-}

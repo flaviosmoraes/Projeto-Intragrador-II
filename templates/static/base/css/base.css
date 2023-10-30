@@ -13,6 +13,8 @@ header{
     background-color: #FFF;
     border-bottom: 0.0625rem solid lightgray;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .side-menu{
     width: 14.8125rem;
@@ -73,4 +75,29 @@ section#content{
     flex: 1;
     padding: 1rem;
     background-color: #ecf0f5;
+}
+
+.d-flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#aumentar,#diminuir{
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-width: 0.125rem;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+#aumentar:hover,#diminuir:hover{
+    color: white;
+    background-color: black;
 }
