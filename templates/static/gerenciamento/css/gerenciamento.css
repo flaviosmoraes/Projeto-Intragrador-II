@@ -192,13 +192,16 @@ h4 {
 }
 
 input {
-    display: block;
-    width: 100%;
+    flex: 1;
     height: 1.875rem;
     padding: 0.3125rem;
     font-size: 1rem;
 }
 
+.input_box{
+    display: flex;
+    flex-direction: column;
+}
 .input_nome {
     display: block;
     font-weight: bold;
@@ -332,4 +335,20 @@ dialog[open] {
         opacity: 1;
         transform: translateY(0%);
     }
+}
+
+.input_box.width-20{
+    width: 20%;
+}
+
+.input_box.width-30{
+    width: 30%;
+}
+
+.input_box.width-40{
+    width: 40%;
+}
+
+.input_box.width-60{
+    width: 60%;
 }

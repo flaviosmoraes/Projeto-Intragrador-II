@@ -4,7 +4,7 @@
 }
 
 .texto{
-    padding-top: 2.1875rem;
+    /* padding-top: 2.1875rem; */
     max-width: 50rem;
     margin: auto;
 }
@@ -25,4 +25,38 @@
 
 .subtitulo > h2{
     line-height: 150%;
+}
+
+#btns-social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.btn-social{
+    padding: 0.5rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+    border-width: 0px;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+    color: white;
+    margin: 0.5rem;
+}
+
+#wpp{
+    background-color: #46c654;
+}
+
+#wpp:hover{
+    background-color: #33933e;
+}
+
+#insta{
+    background-color: #d60094;
+}
+
+#insta:hover{
+    background-color: #a30070;
 }

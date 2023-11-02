@@ -10,8 +10,10 @@ from time import sleep
 import openpyxl
 from openpyxl.utils.dataframe import dataframe_to_rows
 import pandas as pd
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='/login')
 def gerenciamento(request):
     context = {
         'postos': postos_coleta.objects.all(),
@@ -20,6 +22,7 @@ def gerenciamento(request):
     return render(request, 'gerenciamento.html', context)
 
 
+@login_required(login_url='/login')
 def adicionar(request):
     if request.method == 'POST':
         nome_posto = request.POST.get('nome_posto')
@@ -35,8 +38,7 @@ def adicionar(request):
         novo_posto.endereco_completo = endereco_completo
         novo_posto.nome_posto = nome_posto
         if nome_e_endereco:
-            geolocator = GoogleV3(
-                api_key='AIzaSyCpeQyKNjQSD-5Of4GBbOyVEwyDRL1lU3E')
+            geolocator = GoogleV3(api_key='AIzaSyCpeQyKNjQSD-5Of4GBbOyVEwyDRL1lU3E')  # noqa
             location = geolocator.geocode(nome_e_endereco)
             if location:
                 novo_posto.latitude = location.latitude
@@ -48,6 +50,7 @@ def adicionar(request):
         return HttpResponseRedirect('/gerenciamento/')
 
 
+@login_required(login_url='/login')
 def editar(request):
     if request.method == 'POST':
         id_posto_editar = request.POST.get('id_posto')
@@ -62,14 +65,12 @@ def editar(request):
                 return HttpResponse('<p><em>ERRO:</em> Escreva o novo endereço do posto.</p>')
             return HttpResponse('<p><em>ERRO:</em> Escreva as novas informações de endereço e nome do posto.</p>')
         try:
-            posto_a_editar = postos_coleta.objects.get(
-                id_posto=id_posto_editar)
+            posto_a_editar = postos_coleta.objects.get(id_posto=id_posto_editar)  # noqa
             nome_e_endereco = nome_posto + ", " + endereco_completo
             posto_a_editar.endereco_completo = endereco_completo
             posto_a_editar.nome_posto = nome_posto
             posto_a_editar.atualizado_em = timezone.now()
-            geolocator = GoogleV3(
-                api_key='AIzaSyCpeQyKNjQSD-5Of4GBbOyVEwyDRL1lU3E')
+            geolocator = GoogleV3(api_key='AIzaSyCpeQyKNjQSD-5Of4GBbOyVEwyDRL1lU3E')  # noqa
             location = geolocator.geocode(nome_e_endereco)
             if location:
                 posto_a_editar.latitude = location.latitude
@@ -83,6 +84,7 @@ def editar(request):
         return HttpResponseRedirect('/gerenciamento/')
 
 
+@login_required(login_url='/login')
 def excluir(request, id):
     if request.method == 'POST':
         if id == 1:
@@ -90,8 +92,7 @@ def excluir(request, id):
             if not id_posto_excluir:
                 return HttpResponse('<p><em>ERRO:</em> Digite o numero de um posto.</p>')
             try:
-                posto_a_excluir = postos_coleta.objects.get(
-                    id_posto=id_posto_excluir)
+                posto_a_excluir = postos_coleta.objects.get(id_posto=id_posto_excluir)  # noqa
                 nome_posto = posto_a_excluir.nome_posto
                 posto_a_excluir.delete()
                 return HttpResponse('<p>Sucesso ao excluir o posto ' + nome_posto + ' !</p>')
@@ -108,6 +109,7 @@ def excluir(request, id):
         return HttpResponseRedirect('/gerenciamento/')
 
 
+@login_required(login_url='/login')
 def atualizar(request, id):
     if request.method == 'POST':
         if id == 1:
@@ -124,11 +126,11 @@ def atualizar(request, id):
         return HttpResponseRedirect('/gerenciamento/')
 
 
+@login_required(login_url='/login')
 def download(request):
     if request.method == 'POST':
         # Obtenha os dados que você deseja exportar para o Excel
-        residuos_data = residuos.objects.filter(foi_recolhido=True).values(
-            'publicado_por').annotate(total_quantidade_kg=Sum('quantidade_kg'))
+        residuos_data = residuos.objects.filter(foi_recolhido=True).values('publicado_por').annotate(total_quantidade_kg=Sum('quantidade_kg'))  # noqa
 
         # Crie um DataFrame pandas com os dados
         df = pd.DataFrame(residuos_data)

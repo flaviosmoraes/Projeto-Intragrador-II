@@ -4,13 +4,16 @@ from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django.template.response import TemplateResponse
 from django.db.models import Sum, F, FloatField
 from gerenciamento.models import postos_coleta, residuos
+from django.contrib.auth.decorators import login_required
 import json
 
 
+@login_required(login_url='/login')
 def mapa(request):
     return render(request, 'mapa.html')
 
 
+@login_required(login_url='/login')
 def getgeojson(request):
     if request.method == 'POST':
         postos = postos_coleta.objects.all()
@@ -43,6 +46,7 @@ def getgeojson(request):
         return HttpResponseRedirect('/mapa/')
 
 
+@login_required(login_url='/login')
 def posto(request, id):
     if request.method == 'POST':
         idPosto = id
@@ -57,6 +61,7 @@ def posto(request, id):
         return HttpResponseRedirect('/mapa/')
 
 
+@login_required(login_url='/login')
 def publicar(request):
     if request.method == 'POST':
         id_posto = request.POST.get('id_posto')
@@ -78,6 +83,7 @@ def publicar(request):
         return HttpResponseRedirect('/mapa/')
 
 
+@login_required(login_url='/login')
 def coletar(request):
     if request.method == 'POST':
         data = json.loads(request.body)
@@ -90,6 +96,7 @@ def coletar(request):
         return HttpResponseRedirect('/mapa/')
 
 
+@login_required(login_url='/login')
 def gettable(request, id):
     if request.method == 'POST':
         idPosto = id
