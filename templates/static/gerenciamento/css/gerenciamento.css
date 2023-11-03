@@ -1,14 +1,15 @@
-button{
+button {
     caret-color: transparent;
 }
+
 .accordion {
     width: 100%;
 }
 
 .accordion-item {
-    margin-bottom: 10px;
-    border: 1px solid #4a8cb9;
-    border-radius: 5px;
+    margin-bottom: 0.625rem;
+    border: 0.0625rem solid #4a8cb9;
+    border-radius: 0.3125rem;
     overflow: hidden;
 }
 
@@ -17,70 +18,75 @@ button{
     justify-content: space-between;
     align-items: center;
     background-color: #4a8cb9;
-    padding: 10px;
+    padding: 0.625rem;
     color: white;
 }
 
 .accordion-icon {
     color: white;
     background-color: #4a8cb9;
-    font-size: 24px;
-    border: 0px;
-    width: 25px;
+    font-size: 1.5rem;
+    border: 0;
+    width: 1.5625rem;
     cursor: pointer;
 }
 
-.accordion-icon:hover{
+.accordion-icon:hover {
     background-color: #427ea6;
 }
 
 .accordion-content {
     background-color: white;
-    height: 0px;
+    height: 0;
     transition: 0.2s;
-    padding-right: 20px;
-    padding-left: 20px;
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
 }
 
 .accordion-item.active .accordion-content {
     transition: max-height;
     height: fit-content;
     transition: 0.2s;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
-.botoes{
+.botoes {
     list-style: none;
     display: flex;
     justify-content: right;
     align-items: center;
 }
 
-.botoes-item{
-    padding-left: 10px;
+.botoes-item {
+    padding-left: 0.625rem;
 }
 
-.botoes-item > button{
+.botoes-item > button {
     cursor: pointer;
-    padding: 8px;
+    padding: 0.5rem;
     display: flex;
     align-items: center;
+    font-size: 1rem;
 }
 
-.botoes-item > button > i{
-    font-size: 16px;
-    padding-right: 3px;
+.botoes-item > button > i {
+    font-size: 1rem;
+    padding-right: 0.1875rem;
 }
 
-h4{
+h4 {
     font-weight: normal;
 }
 
 .sub-accordion-item {
-    margin-bottom: 10px;
-    border: 1px solid #4a8cb9;
-    border-radius: 5px;
+    margin-bottom: 0.9375rem;
+    border: 0.0625rem solid #4a8cb9;
+    border-radius: 0.3125rem;
     overflow: hidden;
+}
+
+.accordion-no-margin {
+    margin-bottom: 0;
 }
 
 .sub-accordion-header {
@@ -88,26 +94,26 @@ h4{
     justify-content: space-between;
     align-items: center;
     background-color: #4a8cb9;
-    padding: 10px;
+    padding: 0.625rem;
     color: white;
 }
 
 .sub-accordion-icon {
     color: white;
     background-color: #4a8cb9;
-    font-size: 24px;
-    border: 0px;
-    width: 25px;
+    font-size: 1.5rem;
+    border: 0;
+    width: 1.5625rem;
     cursor: pointer;
 }
 
-.sub-accordion-icon:hover{
+.sub-accordion-icon:hover {
     background-color: #427ea6;
 }
 
 .sub-accordion-content {
     background-color: white;
-    height: 0px;
+    height: 0;
     transition: 0.2s;
 }
 
@@ -115,103 +121,234 @@ h4{
     transition: max-height;
     height: fit-content;
     transition: 0.2s;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
 }
 
-#cadastrar{
-    border: 1px solid #40a261;
+#cadastrar {
+    border: 0.0625rem solid #40a261;
 }
 
-#cadastrar > .sub-accordion-header{
+#cadastrar > .sub-accordion-header {
     background-color: #40a261;
 }
 
-#cadastrar > .sub-accordion-header > .sub-accordion-icon{
+#cadastrar > .sub-accordion-header > .sub-accordion-icon {
     background-color: #40a261;
 }
 
-#cadastrar > .sub-accordion-header > .sub-accordion-icon:hover{
+#cadastrar > .sub-accordion-header > .sub-accordion-icon:hover {
     background-color: #399157;
 }
 
-#editar{
-    border: 1px solid #eb9f2e;
+#editar {
+    border: 0.0625rem solid #eb9f2e;
 }
 
-#editar > .sub-accordion-header{
+#editar > .sub-accordion-header {
     background-color: #eb9f2e;
 }
 
-#editar > .sub-accordion-header > .sub-accordion-icon{
+#editar > .sub-accordion-header > .sub-accordion-icon {
     background-color: #eb9f2e;
 }
 
-#editar > .sub-accordion-header > .sub-accordion-icon:hover{
+#editar > .sub-accordion-header > .sub-accordion-icon:hover {
     background-color: #d38f29;
 }
 
-#excluir{
-    border: 1px solid #d2553b;
+#excluir {
+    border: 0.0625rem solid #d2553b;
 }
 
-#excluir > .sub-accordion-header{
+#excluir > .sub-accordion-header {
     background-color: #d2553b;
 }
 
-#excluir > .sub-accordion-header > .sub-accordion-icon{
+#excluir > .sub-accordion-header > .sub-accordion-icon {
     background-color: #d2553b;
 }
 
-#excluir > .sub-accordion-header > .sub-accordion-icon:hover{
+#excluir > .sub-accordion-header > .sub-accordion-icon:hover {
     background-color: #bd4c35;
 }
 
-.btn-crud{
+.btn-crud {
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding-top: 1.25rem;
 }
 
-.btn-crud > button{
-    padding: 5px;
-    font-size: 16px;
+.btn-crud > button {
+    padding: 0.3125rem;
+    font-size: 1rem;
 }
 
 .form-container {
     display: flex;
     justify-content: space-around;
-    box-shadow: 0px 1px lightgray;
-    padding-bottom: 20px;
+    box-shadow: 0px 0.0625rem lightgray;
+    padding-bottom: 1.25rem;
 }
 
 input {
-    display: block;
-    width: 100%;
-    height: 30px;
-    padding: 5px;
-  }
+    flex: 1;
+    height: 1.875rem;
+    padding: 0.3125rem;
+    font-size: 1rem;
+}
 
-.input_nome{
+.input_box{
+    display: flex;
+    flex-direction: column;
+}
+.input_nome {
     display: block;
     font-weight: bold;
-    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
 }
 
-table{
-    width: 100%;
+dialog {
+    margin: auto;
+    width: 25%;
+    height: fit-content;
+    border-radius: 0.03125rem;
+    border-color: lightgray;
+    border-width: 0.0625rem;
+    box-shadow: 0px 0px 1.25rem gray;
 }
 
-thead{
-    box-shadow: 0px 1px gray;
-}
-
-tr{
-    padding-bottom: 5px;
-}
-
-td{
+#dialog-head {
+    padding: 0.625rem;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     align-items: center;
+    box-shadow: 0px 0.0625rem lightgray;
+}
+
+#dialog-body {
+    min-height: 2.8125rem;
+    max-height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.625rem;
+}
+
+#dialog-bottom {
+    padding: 0.625rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    box-shadow: 0px -0.0625rem lightgray;
+}
+
+#dialog-btn {
+    padding: 0.3125rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#dialog-btn > i {
+    padding-right: 0.3125rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-bottom: 0.0625rem solid gray;
+}
+
+td {
+    padding: 0.625rem;
+}
+
+tbody > tr {
+    border-top: 0.0625rem solid lightgray;
+}
+
+tbody > tr:hover {
+    background-color: lightgray;
+}
+
+th {
+    padding: 0.625rem;
+    border-bottom: 0.0625rem solid gray;
+}
+
+.t-row.selecionado {
+    background-color: #1772f7;
+    color: white;
+}
+
+#t-id {
+    text-align: right;
+}
+
+#t-name {
+    text-align: left;
+}
+
+#t-address {
+    text-align: left;
+}
+
+.loader {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 0.1875rem solid gray;
+    border-right: 0.1875rem solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.txt-aling-center {
+    text-align: center;
+}
+
+dialog[open] {
+    animation: show-dialog 0.5s ease normal;
+}
+
+@keyframes show-dialog {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.input_box.width-20{
+    width: 20%;
+}
+
+.input_box.width-30{
+    width: 30%;
+}
+
+.input_box.width-40{
+    width: 40%;
+}
+
+.input_box.width-60{
+    width: 60%;
 }

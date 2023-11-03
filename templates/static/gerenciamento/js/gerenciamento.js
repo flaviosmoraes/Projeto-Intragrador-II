@@ -1,4 +1,5 @@
 const accordionItems = document.querySelectorAll('.accordion-item');
+const subaccordionItems = document.querySelectorAll('.sub-accordion-item');
 
 accordionItems.forEach((item) => {
     const header = item.querySelector('.accordion-header');
@@ -15,8 +16,6 @@ accordionItems.forEach((item) => {
     });
 });
 
-const subaccordionItems = document.querySelectorAll('.sub-accordion-item');
-
 subaccordionItems.forEach((item) => {
     const header = item.querySelector('.sub-accordion-header');
     const content = item.querySelector('.sub-accordion-content');
@@ -31,3 +30,5 @@ subaccordionItems.forEach((item) => {
         }
     });
 });
+
+
