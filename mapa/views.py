@@ -69,16 +69,16 @@ def publicar(request):
         quantidade_kg = request.POST.get('quantidade_kg')
         if not publicado_por or not quantidade_kg:
             if not publicado_por and quantidade_kg:
-                return HttpResponse('<br><p><em>ERRO:</em> Escreva o nome de quem está publicando.</p>')
+                return HttpResponse('<br><p id="form-response"><em>ERRO:</em> Escreva o nome de quem está publicando.</p>')
             elif publicado_por and not quantidade_kg:
-                return HttpResponse('<br><p><em>ERRO:</em> Informe a quantidade do resíduo.</p>')
-            return HttpResponse('<br><p><em>ERRO:</em> Preencha as informações de quem está publicando e a quantidade do resíduo.</p>')
+                return HttpResponse('<br><p id="form-response"><em>ERRO:</em> Informe a quantidade do resíduo.</p>')
+            return HttpResponse('<br><p id="form-response"><em>ERRO:</em> Preencha as informações de quem está publicando e a quantidade do resíduo.</p>')
         novo_residuo = residuos()
         novo_residuo.quantidade_kg = quantidade_kg
         novo_residuo.publicado_por = publicado_por
         novo_residuo.posto_fk_id = id_posto
         novo_residuo.save()
-        return HttpResponse('<br><p>Resíduo gravado no banco de dados com sucesso.</p>')
+        return HttpResponse('<br><p id="form-response">Resíduo gravado no banco de dados com sucesso.</p>')
     else:
         return HttpResponseRedirect('/mapa/')
 

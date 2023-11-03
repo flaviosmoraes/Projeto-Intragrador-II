@@ -29,10 +29,10 @@ def adicionar(request):
         endereco_completo = request.POST.get('endereco_completo')
         if not nome_posto or not endereco_completo:
             if not nome_posto and endereco_completo:
-                return HttpResponse('<p><em>ERRO:</em> Escreva o nome do posto.</p>')
+                return HttpResponse('<p id="posto-response"><em>ERRO:</em> Escreva o nome do posto.</p>')
             elif nome_posto and not endereco_completo:
-                return HttpResponse('<p><em>ERRO:</em> Escreva o endereço do posto.</p>')
-            return HttpResponse('<p><em>ERRO:</em> Escreva as informações de endereço e nome do posto.</p>')
+                return HttpResponse('<p id="posto-response"><em>ERRO:</em> Escreva o endereço do posto.</p>')
+            return HttpResponse('<p id="posto-response"><em>ERRO:</em> Escreva as informações de endereço e nome do posto.</p>')
         nome_e_endereco = nome_posto + ", " + endereco_completo
         novo_posto = postos_coleta()
         novo_posto.endereco_completo = endereco_completo
@@ -44,8 +44,8 @@ def adicionar(request):
                 novo_posto.latitude = location.latitude
                 novo_posto.longitude = location.longitude
                 novo_posto.save()
-                return HttpResponse('<p>O posto ' + nome_posto + ' foi adicionado com sucesso</p>')
-        return HttpResponse('<p><em>ERRO:</em> O endereço: ' + nome_e_endereco + ' não foi encontado e o posto não foi adicionado!</p>')
+                return HttpResponse('<p id="posto-response">O posto ' + nome_posto + ' foi adicionado com sucesso!</p>')
+        return HttpResponse('<p id="posto-response"><em>ERRO:</em> O endereço: ' + nome_e_endereco + ' não foi encontado e o posto não foi adicionado!</p>')
     else:
         return HttpResponseRedirect('/gerenciamento/')
 
@@ -57,13 +57,13 @@ def editar(request):
         endereco_completo = request.POST.get('endereco_completo')
         nome_posto = request.POST.get('nome_posto')
         if not id_posto_editar:
-            return HttpResponse('<p><em>ERRO:</em> Digite o numero de um posto.</p>')
+            return HttpResponse('<p id="posto-response"><em>ERRO:</em> Digite o numero de um posto.</p>')
         if not nome_posto or not endereco_completo:
             if not nome_posto and endereco_completo:
-                return HttpResponse('<p><em>ERRO:</em> Escreva o novo nome do posto.</p>')
+                return HttpResponse('<p id="posto-response"><em>ERRO:</em> Escreva o novo nome do posto.</p>')
             elif nome_posto and not endereco_completo:
-                return HttpResponse('<p><em>ERRO:</em> Escreva o novo endereço do posto.</p>')
-            return HttpResponse('<p><em>ERRO:</em> Escreva as novas informações de endereço e nome do posto.</p>')
+                return HttpResponse('<p id="posto-response"><em>ERRO:</em> Escreva o novo endereço do posto.</p>')
+            return HttpResponse('<p id="posto-response"><em>ERRO:</em> Escreva as novas informações de endereço e nome do posto.</p>')
         try:
             posto_a_editar = postos_coleta.objects.get(id_posto=id_posto_editar)  # noqa
             nome_e_endereco = nome_posto + ", " + endereco_completo
@@ -76,10 +76,10 @@ def editar(request):
                 posto_a_editar.latitude = location.latitude
                 posto_a_editar.longitude = location.longitude
                 posto_a_editar.save()
-                return HttpResponse('<p>O posto ' + id_posto_editar + ' foi editado com sucesso</p>')
-            return HttpResponse('<p><em>ERRO:</em> O endereço: ' + nome_e_endereco + ' não foi encontado e o posto não foi editado!</p>')
+                return HttpResponse('<p id="posto-response">O posto ' + id_posto_editar + ' foi editado com sucesso!</p>')
+            return HttpResponse('<p id="posto-response"><em>ERRO:</em> O endereço: ' + nome_e_endereco + ' não foi encontado e o posto não foi editado!</p>')
         except postos_coleta.DoesNotExist:
-            return HttpResponse('<p><em>ERRO:</em> Não exite um posoto com o id: ' + id_posto_editar + '</p>')
+            return HttpResponse('<p id="posto-response"><em>ERRO:</em> Não exite um posoto com o id: ' + id_posto_editar + '</p>')
     else:
         return HttpResponseRedirect('/gerenciamento/')
 
@@ -90,21 +90,21 @@ def excluir(request, id):
         if id == 1:
             id_posto_excluir = request.POST.get('id_posto')
             if not id_posto_excluir:
-                return HttpResponse('<p><em>ERRO:</em> Digite o numero de um posto.</p>')
+                return HttpResponse('<p id="posto-response"><em>ERRO:</em> Digite o numero de um posto.</p>')
             try:
                 posto_a_excluir = postos_coleta.objects.get(id_posto=id_posto_excluir)  # noqa
                 nome_posto = posto_a_excluir.nome_posto
                 posto_a_excluir.delete()
-                return HttpResponse('<p>Sucesso ao excluir o posto ' + nome_posto + ' !</p>')
+                return HttpResponse('<p id="posto-response">Sucesso ao excluir o posto ' + nome_posto + '!</p>')
             except postos_coleta.DoesNotExist:
-                return HttpResponse('<p><em>ERRO:</em> Não exite um posoto com o id: ' + id_posto_excluir + '</p>')
+                return HttpResponse('<p id="posto-response"><em>ERRO:</em> Não exite um posoto com o id: ' + id_posto_excluir + '</p>')
         if id == 2:
             residuos_recolhidos = residuos.objects.filter(foi_recolhido=True)
             if residuos_recolhidos:
                 residuos_recolhidos.delete()
-                return HttpResponse('<p>Os resíduos coletados foram limpos do banco de dados.</p>')
+                return HttpResponse('<p id="residuo-response">Os resíduos coletados foram limpos do banco de dados.</p>')
             else:
-                return HttpResponse('<p><em>ERRO:</em> Não há resíduos marcados como recolhidos para serem limpos.</p>')
+                return HttpResponse('<p id="residuo-response"><em>ERRO:</em> Não há resíduos marcados como recolhidos para serem limpos.</p>')
     else:
         return HttpResponseRedirect('/gerenciamento/')
 
