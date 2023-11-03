@@ -20,6 +20,7 @@ button {
     background-color: #4a8cb9;
     padding: 0.625rem;
     color: white;
+    font-weight: bold;
 }
 
 .accordion-icon {
@@ -96,6 +97,7 @@ h4 {
     background-color: #4a8cb9;
     padding: 0.625rem;
     color: white;
+    font-weight: bold;
 }
 
 .sub-accordion-icon {
@@ -142,19 +144,19 @@ h4 {
 }
 
 #editar {
-    border: 0.0625rem solid #eb9f2e;
+    border: 0.0625rem solid #c98013;
 }
 
 #editar > .sub-accordion-header {
-    background-color: #eb9f2e;
+    background-color: #c98013;
 }
 
 #editar > .sub-accordion-header > .sub-accordion-icon {
-    background-color: #eb9f2e;
+    background-color: #c98013;
 }
 
 #editar > .sub-accordion-header > .sub-accordion-icon:hover {
-    background-color: #d38f29;
+    background-color: #955f0e;
 }
 
 #excluir {

@@ -1,5 +1,5 @@
 <div id="icone-reciclagem">
-    <img src="https://cdn-icons-png.flaticon.com/512/892/892930.png" alt="icone-reciclagem">
+    <img src="https://cdn-icons-png.flaticon.com/512/892/892930.png" alt="Ícone de reciclagem">
 </div>
 <br>
     <h2>{{posto.first.nome_posto}}</h2>
@@ -12,11 +12,10 @@
     <form class="form-residuo" action="{% url 'publicar' %}" method="POST">{% csrf_token %}
         <input type="hidden" name="id_posto" value="{{posto.first.id_posto}}">
         <input type="hidden" name="publicado_por" value="{{user.username}}">
-        <div>
-        <label>Quantidade (Kg):</label>
-        <input type="number" name="quantidade_kg" min="0.000" step="0.001" placeholder="Quantidade em Kg">
-        </div>
-            <button>Adicionar</button>
+        <label id="qnt-input"><span>Quantidade (Kg):</span>
+            <input type="number" name="quantidade_kg" min="0.000" step="0.001" placeholder="Digite a quantidade em Kg">
+        </label>
+        <button type="submit">Adicionar</button>
     </form>
     <div class="form-response">
     </div>

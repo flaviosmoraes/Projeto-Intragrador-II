@@ -144,7 +144,8 @@ input {
     height: 1.875rem;
     padding: 0.3125rem;
     font-size: 1rem;
-  }
+    flex: 1;
+}
 
 .form-residuo-container{
     display: none;
@@ -200,3 +201,9 @@ dialog[open] {
       transform: rotate(360deg);
     }
   }
+
+#qnt-input{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}

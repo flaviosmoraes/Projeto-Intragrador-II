@@ -41,8 +41,12 @@
     border-width: 0px;
     border-radius: 0.3125rem;
     cursor: pointer;
-    color: white;
+    color: black;
     margin: 0.5rem;
+}
+
+.btn-social > i{
+    color: white;
 }
 
 #wpp{
