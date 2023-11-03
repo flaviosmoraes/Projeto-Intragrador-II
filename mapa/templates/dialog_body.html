@@ -11,7 +11,7 @@
 <div class="form-residuo-container">
     <form class="form-residuo" action="{% url 'publicar' %}" method="POST">{% csrf_token %}
         <input type="hidden" name="id_posto" value="{{posto.first.id_posto}}">
-        <input type="hidden" name="publicado_por" value="{{user.first_name}}">
+        <input type="hidden" name="publicado_por" value="{{user.username}}">
         <div>
         <label>Quantidade (Kg):</label>
         <input type="number" name="quantidade_kg" min="0.000" step="0.001" placeholder="Quantidade em Kg">
