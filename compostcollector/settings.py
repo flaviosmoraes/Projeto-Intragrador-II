@@ -82,8 +82,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'organe',
         'USER': 'root',
-        'PASSWORD': 'mpxg/GzC$xyF{o+y',
-        'HOST': '34.151.198.122',
+        'PASSWORD': 'tEHjrQ^<FXNpUkm3',
+        'HOST': '35.198.60.71',
         'PORT': '3306',
     }
 }
