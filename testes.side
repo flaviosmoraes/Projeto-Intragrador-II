@@ -759,7 +759,7 @@
       "id": "29943a50-035b-4a30-ab10-6253b676ce73",
       "comment": "",
       "command": "click",
-      "target": "id=1",
+      "target": "//button[contains(text(),'Recolher selecionados')]",
       "targets": [
         ["id=1", "id"],
         ["css=#\\31", "css:finder"],
@@ -811,7 +811,7 @@
       "id": "0cb48b24-aae4-49ce-9cd9-557fc222c37b",
       "comment": "",
       "command": "click",
-      "target": "id=2",
+      "target": "//button[contains(text(),'Recolher selecionados')]",
       "targets": [
         ["id=2", "id"],
         ["css=#\\32", "css:finder"],
@@ -863,7 +863,7 @@
       "id": "ee359525-b5e3-4ec8-8bf0-c51158f89cdd",
       "comment": "",
       "command": "click",
-      "target": "id=3",
+      "target": "//button[contains(text(),'Recolher selecionados')]",
       "targets": [
         ["id=3", "id"],
         ["css=#\\33", "css:finder"],
@@ -915,7 +915,7 @@
       "id": "9e0f183d-1f09-4a7f-927f-30f402108d0e",
       "comment": "",
       "command": "click",
-      "target": "id=4",
+      "target": "//button[contains(text(),'Recolher selecionados')]",
       "targets": [
         ["id=4", "id"],
         ["css=#\\34", "css:finder"],
